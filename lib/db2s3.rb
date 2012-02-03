@@ -110,7 +110,7 @@ class DB2S3
   end
 
   def db_credentials
-    ActiveRecord::Base.connection.instance_eval { @config } # Dodgy!
+    Rails.configuration.database_configuration[Rails.env]
   end
 
   class S3Store
